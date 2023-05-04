@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  db:
+    container_name: 'db'
+    image: mongo:4.1.13
+    restart: always
+    ports:
+      - "27019:27017"
+    volumes:
+      - ./mongodb:/data/db
+    networks:
+      - net_A
+    
+networks:
+  net_A:
+    external: false
+    name: net_A
+    driver: bridge

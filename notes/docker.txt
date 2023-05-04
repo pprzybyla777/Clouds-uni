@@ -1,0 +1,38 @@
+# stoping apache2 server blocking port 80
+sudo service apache2 stop
+
+# building image from Dockerfile
+docker build -t my_nginx .
+
+# running docker container from image
+docker run -it --network net_A  -p 3003:3003 --name server -v ./server:/app/server lab07zad02 
+
+# creating new bridge network (bridge is the default)
+docker network create my_network
+
+# uruchamia komendę w trybie interaktywnym i terminalem
+docker exec -it mongo bash
+
+
+# MongoDB w kontenerze
+docker run -d -p 27017:27017 --name mymongo mongo:latest
+            27017host : 27017kontener
+
+# exiting container without stopping 
+Ctrl+P followed by Ctrl+Q
+
+### NGINX 
+sudo service apache2 stop
+docker run -p 8000:80 nginx:latest
+
+
+###
+apk update
+apk upgrade
+apk search curl
+apk -a info curl
+apk -v info curl
+
+-- better
+
+apk --no-cache add curl git yarn

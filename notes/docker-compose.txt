@@ -1,0 +1,5 @@
+# buduje obrazy przed uruchomieniem
+docker-compose build
+
+# uruchamia
+docker-compose up

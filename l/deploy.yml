@@ -1,0 +1,14 @@
+apiVersion: apps/vi
+kind: Deployment
+metadata:
+  name: mynginx-deployment
+  labels:
+    app: myapp
+    type: frontend
+
+spec:
+  containers:
+    - name: mynginx
+      image: mynginx
+      ports:
+        - containerPort: 80

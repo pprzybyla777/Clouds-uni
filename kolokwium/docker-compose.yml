@@ -1,0 +1,19 @@
+version: '3.9'
+services:
+  app:
+    container_name: 'app'
+    build:
+      dockerfile: ./Dockerfile
+      args:
+        - GIT_REPO=https://github.com/pprzybyla777/sample-react-app.git
+    restart: always
+    ports:
+      - "80:80"
+    networks:
+      - app_network
+    
+networks:
+  app_network:
+    external: false
+    name: app_network
+    driver: bridge
