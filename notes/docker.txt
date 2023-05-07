@@ -16,7 +16,7 @@ docker exec -it mongo bash
 
 # MongoDB w kontenerze
 docker run -d -p 27017:27017 --name mymongo mongo:latest
-            27017host : 27017kontener
+#           27017host : 27017kontener
 
 # exiting container without stopping 
 Ctrl+P followed by Ctrl+Q
