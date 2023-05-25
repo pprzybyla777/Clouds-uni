@@ -1,0 +1,44 @@
+version: '3.9'
+services:
+
+  server:
+    container_name: 'web'
+    build: ./web
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - net_A
+
+  db:
+    container_name: 'db'
+    image: mongo:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - ../zad01/mongodb:/data/db
+    networks:
+      - net_A
+
+  nginx:
+    container_name: nginx
+    build: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - server
+    environment:
+      - APP_HOST=web
+      - APP_PORT=3000
+    command: /bin/bash -c "envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
+    networks:
+      - net_A
+    
+networks:
+  net_A:
+    external: false
+    name: net_A
+    driver: bridge

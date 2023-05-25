@@ -1,0 +1,14 @@
+{
+  "data": [
+   {
+       "name": "Laptop",
+       "brand": "Apple",
+       "price": 5000
+   },
+   {
+       "name": "Smartfon",
+       "brand": "Samsung",
+       "price": 2000
+   }
+ ]
+}
